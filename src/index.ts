@@ -7,6 +7,7 @@ import { accountRoute } from './routes/account.route';
 import { paymentRoute } from './routes/payment.route';
 import { userRoute } from './routes/user.route';
 import {jobRouter } from './routes/job.routes';
+import { adminRoute } from './routes/admin.route';
 import { sendQuotationController } from './controllers/send.Quatation.controller';
 require('dotenv').config();
 
@@ -24,6 +25,9 @@ app.use(
 app.use('/api/account', accountRoute);
 app.use('/api/payment', paymentRoute);
 app.use('/api/user', userRoute);
+app.use('/api/admin', adminRoute );
+
+
 app.use('/api/job',jobRouter);
 app.post('/send-quotation', sendQuotationController);
 mongoose.connect(process.env.MONGODB_URI).then(() => {
